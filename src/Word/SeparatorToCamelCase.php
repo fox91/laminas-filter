@@ -7,10 +7,7 @@ use Laminas\Stdlib\StringUtils;
 class SeparatorToCamelCase extends AbstractSeparator
 {
     /**
-     * Defined by Laminas\Filter\Filter
-     *
-     * @param  string|array $value
-     * @return string|array
+     * @inheritDoc
      */
     public function filter($value)
     {
@@ -29,10 +26,12 @@ class SeparatorToCamelCase extends AbstractSeparator
             if (! extension_loaded('mbstring')) {
                 $replacements = [
                     // @codingStandardsIgnoreStart
-                    static function ($matches) {
+                    /** @param array<string> $matches */
+                    static function (array $matches): string {
                         return strtoupper($matches[2]);
                     },
-                    static function ($matches) {
+                    /** @param array<string> $matches */
+                    static function (array $matches): string {
                         return strtoupper($matches[1]);
                     },
                     // @codingStandardsIgnoreEnd
@@ -40,10 +39,12 @@ class SeparatorToCamelCase extends AbstractSeparator
             } else {
                 $replacements = [
                     // @codingStandardsIgnoreStart
-                    static function ($matches) {
+                    /** @param array<string> $matches */
+                    static function (array $matches): string {
                         return mb_strtoupper($matches[2], 'UTF-8');
                     },
-                    static function ($matches) {
+                    /** @param array<string> $matches */
+                    static function (array $matches): string {
                         return mb_strtoupper($matches[1], 'UTF-8');
                     },
                     // @codingStandardsIgnoreEnd
@@ -56,10 +57,12 @@ class SeparatorToCamelCase extends AbstractSeparator
             ];
             $replacements = [
                 // @codingStandardsIgnoreStart
-                static function ($matches) {
+                /** @param array<string> $matches */
+                static function (array $matches): string {
                     return strtoupper($matches[2]);
                 },
-                static function ($matches) {
+                /** @param array<string> $matches */
+                static function (array $matches): string {
                     return strtoupper($matches[1]);
                 },
                 // @codingStandardsIgnoreEnd

@@ -7,12 +7,14 @@ use Laminas\Filter\Exception;
 
 abstract class AbstractSeparator extends AbstractFilter
 {
+    /** @var string */
     protected $separator = ' ';
 
     /**
      * Constructor
      *
      * @param array|string $separator Space by default
+     * @throws Exception\InvalidArgumentException
      */
     public function __construct($separator = ' ')
     {
@@ -35,8 +37,9 @@ abstract class AbstractSeparator extends AbstractFilter
      */
     public function setSeparator($separator)
     {
+        /** @psalm-suppress DocblockTypeContradiction */
         if (! is_string($separator)) {
-            throw new Exception\InvalidArgumentException('"' . $separator . '" is not a valid separator.');
+            throw new Exception\InvalidArgumentException('"' . var_export($separator, true) . '" is not a valid separator.');
         }
         $this->separator = $separator;
         return $this;

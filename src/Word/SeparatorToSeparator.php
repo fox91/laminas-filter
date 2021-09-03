@@ -15,6 +15,7 @@ class SeparatorToSeparator extends AbstractFilter
      *
      * @param  string $searchSeparator      Separator to search for
      * @param  string $replacementSeparator Separator to replace with
+     * @throws Exception\InvalidArgumentException
      */
     public function __construct($searchSeparator = ' ', $replacementSeparator = '-')
     {

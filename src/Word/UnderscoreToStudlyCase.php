@@ -7,10 +7,7 @@ use Laminas\Stdlib\StringUtils;
 class UnderscoreToStudlyCase extends UnderscoreToCamelCase
 {
     /**
-     * Defined by Laminas\Filter\Filter
-     *
-     * @param  string|array $value
-     * @return string|array
+     * @inheritDoc
      */
     public function filter($value)
     {

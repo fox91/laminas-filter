@@ -5,10 +5,7 @@ namespace Laminas\Filter\Word;
 class DashToSeparator extends AbstractSeparator
 {
     /**
-     * Defined by Laminas\Filter\Filter
-     *
-     * @param  string|array $value
-     * @return string|array
+     * @inheritDoc
      */
     public function filter($value)
     {

@@ -5,6 +5,9 @@ namespace Laminas\Filter;
 use Laminas\Stdlib\StringUtils;
 use Traversable;
 
+/**
+ * @implements FilterInterface<mixed>
+ */
 abstract class AbstractFilter implements FilterInterface
 {
     /**
